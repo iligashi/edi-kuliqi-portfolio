@@ -1,6 +1,6 @@
 # Edi Kuliqi — Graphic Designer Portfolio
 
-Personal portfolio for Edi Kuliqi, a graphic designer in Pristina, Kosovo (publishing, branding, digital media).
+Personal portfolio for Edi Kuliqi, a graphic designer in Pristina, Kosovo (branding, packaging, print and digital).
 
 **Stack:** Next.js 15 (App Router) · React 19 · TypeScript · [Motion](https://motion.dev) · Lenis smooth scroll
 
@@ -17,8 +17,8 @@ Open http://localhost:3000.
 
 All copy lives in [`lib/site.ts`](lib/site.ts) — profile, projects, services, experience, tools.
 
-Project visuals are CSS-drawn placeholders ([`components/art.tsx`](components/art.tsx)).
-Replace them with real work: drop images into `public/work/` and render them with `next/image`.
+Project images live in `public/work/`. Each project in `projects` lists its images (the first is the card cover);
+clicking a card opens a gallery. A project with a `url` links out to the live site instead.
 
 ## SEO
 

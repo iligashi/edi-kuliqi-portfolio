@@ -15,12 +15,12 @@ export function Contact() {
     <motion.section ref={ref} id="contact" className="contact" style={{ borderRadius: radius }} aria-labelledby="contact-title">
       <p className="eyebrow">( 07 ) — Contact</p>
       <h2 id="contact-title" className="contact__title">
-        <span className="sr-only">Got a book, brand or campaign? Let&apos;s talk.</span>
+        <span className="sr-only">Got a brand, label or campaign? Let&apos;s talk.</span>
         <span className="line" aria-hidden>
-          <SplitChars text="Got a book," />
+          <SplitChars text="Got a brand," />
         </span>
         <span className="line" aria-hidden>
-          <SplitChars text="brand or" delay={0.15} />{" "}
+          <SplitChars text="label or" delay={0.15} />{" "}
           <em className="serif">campaign?</em>
         </span>
       </h2>

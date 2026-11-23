@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Image from "next/image"
 import { motion, useMotionValue, useScroll, useSpring, useTransform, type MotionValue } from "motion/react"
 import { useIntroDone } from "./intro"
 import { Magnetic, SplitChars, ease } from "./motion-primitives"
@@ -72,7 +73,7 @@ export function Hero() {
         transition={{ duration: 1, delay: 0.6 }}
       >
         <span>( Graphic Designer )</span>
-        <span>Publishing · Branding · Digital</span>
+        <span>Branding · Packaging · Print</span>
         <span>Pristina, Kosovo — 42.66° N</span>
       </motion.div>
 
@@ -104,22 +105,13 @@ export function Hero() {
 
       <div className="hero__floats" aria-hidden>
         <Float depth={0.6} mx={mx} my={my} className="float--1" delay={0.5}>
-          <div className="cover cover--red">
-            <span>
-              Deti i<br />
-              Heshtur
-            </span>
-            <small>roman</small>
+          <div className="tile">
+            <Image src="/work/etincelle-label-1.jpg" alt="" fill sizes="170px" priority />
           </div>
         </Float>
         <Float depth={1.2} mx={mx} my={my} className="float--2" delay={0.65}>
-          <div className="cover cover--ink">
-            <span>
-              Fjalë
-              <br />
-              &amp; Hije
-            </span>
-            <small>poezi</small>
+          <div className="tile tile--b">
+            <Image src="/work/nero-storefront.jpg" alt="" fill sizes="170px" priority />
           </div>
         </Float>
         <Float depth={0.9} mx={mx} my={my} className="float--3" delay={0.8}>
@@ -149,7 +141,7 @@ export function Hero() {
           animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 1, ease, delay: 0.7 }}
         >
-          I design <em className="serif">books people pick up</em>, brands people remember and campaigns that perform —
+          I design <em className="serif">brands people remember</em>, packaging that earns its shelf space and campaigns that perform —
           from first sketch to the press-ready file.
         </motion.p>
         <Magnetic strength={0.5}>
