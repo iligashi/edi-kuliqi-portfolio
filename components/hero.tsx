@@ -105,13 +105,8 @@ export function Hero() {
 
       <div className="hero__floats" aria-hidden>
         <Float depth={0.6} mx={mx} my={my} className="float--1" delay={0.5}>
-          <div className="tile">
-            <Image src="/work/etincelle-label-1.jpg" alt="" fill sizes="170px" priority />
-          </div>
-        </Float>
-        <Float depth={1.2} mx={mx} my={my} className="float--2" delay={0.65}>
-          <div className="tile tile--b">
-            <Image src="/work/nero-storefront.jpg" alt="" fill sizes="170px" priority />
+          <div className="avatar">
+            <Image src="/edi-avatar.png" alt="" width={406} height={600} sizes="200px" priority />
           </div>
         </Float>
         <Float depth={0.9} mx={mx} my={my} className="float--3" delay={0.8}>

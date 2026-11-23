@@ -443,7 +443,6 @@ section {
   pointer-events: auto;
 }
 .float--1 { top: 22%; right: 9%; }
-.float--2 { top: 14%; right: 30%; }
 .float--3 { top: 48%; left: 3%; }
 .float--4 { bottom: 22%; right: 6%; }
 .float__bob {
@@ -772,21 +771,16 @@ html.modal-open {
   border-radius: calc(var(--radius) - 6px);
 }
 
-/* Hero work tiles */
-.tile {
-  position: relative;
-  width: clamp(110px, 11vw, 170px);
-  aspect-ratio: 4 / 5;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px -20px rgba(20, 19, 18, 0.45);
-  rotate: 8deg;
+/* Hero avatar */
+.avatar {
+  width: clamp(120px, 13vw, 210px);
+  rotate: 6deg;
+  filter: drop-shadow(0 24px 30px rgba(20, 19, 18, 0.22));
 }
-.tile--b {
-  rotate: -10deg;
-}
-.tile img {
-  object-fit: cover;
+.avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ───────────── Services ───────────── */
@@ -1181,7 +1175,7 @@ html.modal-open {
   .hero__meta span:nth-child(2) { display: none; }
   .hero__bottom { flex-direction: column; align-items: flex-start; }
   .hero__scroll { align-self: flex-end; width: 104px; height: 104px; }
-  .float--2, .float--3, .float--4 { display: none; }
+  .float--3, .float--4 { display: none; }
   .float--1 { top: 16%; right: 4%; }
   .svc__hit { grid-template-columns: 32px 1fr 24px; gap: 12px; }
   .svc__d { grid-column: 2 / -1; grid-row: 2; }
