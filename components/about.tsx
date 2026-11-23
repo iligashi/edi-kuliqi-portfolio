@@ -5,7 +5,7 @@ import { animate, motion, useInView, useMotionValue, useScroll, useTransform, ty
 import { stats } from "@/lib/site"
 
 const copy =
-  "I'm Edi — a graphic designer from Pristina with three years of designing for publishing, retail and local brands. I work where craft meets commerce: covers that sell, layouts that read beautifully, and brand systems that hold together. Now studying Business & Marketing to make every design decision a smarter one."
+  "I'm Edi — a graphic designer from Pristina with three years of designing for brands, retail and publishing. I work where craft meets commerce: identities that stick, labels and packaging that sell, and brand systems that hold together from logo to storefront. Now studying Business & Marketing to make every design decision a smarter one."
 
 function Word({ word, range, progress }: { word: string; range: [number, number]; progress: MotionValue<number> }) {
   const opacity = useTransform(progress, range, [0.12, 1])

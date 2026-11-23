@@ -32,7 +32,7 @@ export default function OpengraphImage() {
           </span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 28 }}>
-          <span>Book covers · Editorial · Branding · Social</span>
+          <span>Branding · Packaging · Print · Social</span>
           <div style={{ display: "flex", width: 90, height: 135, background: "#e2361f", borderRadius: 6 }} />
         </div>
       </div>

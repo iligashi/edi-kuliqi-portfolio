@@ -27,10 +27,10 @@ const mono = JetBrains_Mono({
   display: "swap",
 })
 
-const title = `${profile.name} — Graphic Designer in Pristina | Book Covers, Branding & Social Media`
+const title = `${profile.name} — Graphic Designer in Pristina | Branding, Packaging & Print`
 const shortTitle = `${profile.name} — Graphic Designer`
 const ogDescription =
-  "Book covers, editorial layouts, brand identities and campaign visuals — designed in Pristina, built for print and screen."
+  "Brand identities, logos, packaging, labels and posters — designed in Pristina, built for print and screen."
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.site),
@@ -44,9 +44,12 @@ export const metadata: Metadata = {
     "graphic designer Kosovo",
     "graphic designer Pristina",
     "dizajner grafik Prishtinë",
-    "book cover designer",
-    "editorial layout design",
     "brand identity designer",
+    "logo designer Kosovo",
+    "packaging design",
+    "label design",
+    "poster design",
+    "book cover designer",
     "social media designer",
     "catalogue design",
     "prepress",
@@ -96,12 +99,14 @@ const jsonLd = {
         { "@type": "EducationalOrganization", name: "Innovation Centre Kosovo" },
       ],
       knowsAbout: [
-        "Book cover design",
-        "Editorial layout",
-        "Typography",
-        "Prepress",
         "Brand identity",
         "Logo design",
+        "Packaging design",
+        "Label design",
+        "Poster design",
+        "Typography",
+        "Book cover design",
+        "Prepress",
         "Social media design",
         "Catalogue design",
         "Adobe InDesign",
