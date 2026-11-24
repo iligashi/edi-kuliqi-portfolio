@@ -616,18 +616,30 @@ section {
   color: var(--muted);
 }
 
+.card {
+  position: relative;
+}
 .card__hit {
-  display: block;
-  width: 100%;
   padding: 0;
   border: 0;
   background: none;
   color: inherit;
   font: inherit;
+  letter-spacing: inherit;
   text-align: left;
   cursor: pointer;
 }
-.card__hit:focus-visible .card__art {
+/* Stretch the title's button/link over the whole card. */
+.card__hit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.card__hit:focus-visible {
+  outline: none;
+}
+.card:has(.card__hit:focus-visible) .card__art {
   outline: 2px solid var(--red);
   outline-offset: 4px;
 }

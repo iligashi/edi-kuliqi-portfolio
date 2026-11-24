@@ -12,10 +12,10 @@ function CardArt({ p }: { p: Project }) {
     <motion.div
       className="card__art"
       style={{ background: p.tone }}
-      whileHover={{ scale: 0.97 }}
+      variants={{ hover: { scale: 0.97 } }}
       transition={{ duration: 0.6, ease }}
     >
-      <motion.div className="card__inner" whileHover={{ scale: 1.08 }} transition={{ duration: 0.8, ease }}>
+      <motion.div className="card__inner" variants={{ hover: { scale: 1.08 } }} transition={{ duration: 0.8, ease }}>
         {cover ? (
           <Image
             src={cover.src}
@@ -46,18 +46,45 @@ function CardArt({ p }: { p: Project }) {
   )
 }
 
+const FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+
 function Lightbox({ project, onClose }: { project: Project; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const root = document.documentElement
+    // Remember what opened the dialog so focus can go back there on close.
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
     root.classList.add("modal-open")
-    closeRef.current?.focus()
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose()
+    closeRef.current?.focus({ preventScroll: true })
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose()
+        return
+      }
+      if (e.key !== "Tab" || !panelRef.current) return
+      // Keep Tab / Shift+Tab cycling inside the dialog.
+      const items = Array.from(panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE))
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement
+      const outside = !panelRef.current.contains(active)
+      if (e.shiftKey && (active === first || outside)) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && (active === last || outside)) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
     window.addEventListener("keydown", onKey)
     return () => {
       root.classList.remove("modal-open")
       window.removeEventListener("keydown", onKey)
+      opener?.focus({ preventScroll: true })
     }
   }, [onClose])
 
@@ -76,6 +103,7 @@ function Lightbox({ project, onClose }: { project: Project; onClose: () => void 
       onClick={onClose}
     >
       <motion.div
+        ref={panelRef}
         className="lb__panel"
         data-cursor=""
         initial={{ y: 60 }}
@@ -166,44 +194,39 @@ export function Work() {
         </div>
 
         <motion.ol ref={trackRef} className="work__track" style={horizontal ? { x } : undefined}>
-          {projects.map((p, i) => {
-            const info = (
+          {projects.map((p, i) => (
+            // The title's button/link is stretched over the whole card (see .card__hit::after),
+            // so the card stays clickable while the title remains a real heading.
+            <motion.li
+              key={p.slug}
+              className="card"
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover="hover"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 1, ease, delay: (i % 3) * 0.08 }}
+            >
+              <CardArt p={p} />
               <div className="card__info">
                 <span className="card__num">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{p.title}</h3>
+                <h3>
+                  {p.url ? (
+                    <a className="card__hit" href={p.url} target="_blank" rel="noopener noreferrer" data-cursor="Visit">
+                      {p.title}
+                      <span className="sr-only"> — visit live site (opens in a new tab)</span>
+                    </a>
+                  ) : (
+                    <button type="button" className="card__hit" data-cursor="View" onClick={() => setOpen(p)}>
+                      {p.title}
+                      <span className="sr-only"> — open project gallery</span>
+                    </button>
+                  )}
+                </h3>
                 <p>{p.summary}</p>
                 <span className="card__year">{p.category}</span>
               </div>
-            )
-            return (
-              <motion.li
-                key={p.slug}
-                className="card"
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 1, ease, delay: (i % 3) * 0.08 }}
-              >
-                {p.url ? (
-                  <a className="card__hit" href={p.url} target="_blank" rel="noopener noreferrer" data-cursor="Visit">
-                    <CardArt p={p} />
-                    {info}
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    className="card__hit"
-                    data-cursor="View"
-                    onClick={() => setOpen(p)}
-                    aria-label={`Open ${p.title} — ${p.category}`}
-                  >
-                    <CardArt p={p} />
-                    {info}
-                  </button>
-                )}
-              </motion.li>
-            )
-          })}
+            </motion.li>
+          ))}
         </motion.ol>
       </div>
 
