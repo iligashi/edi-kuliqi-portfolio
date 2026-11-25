@@ -71,6 +71,19 @@ export const projects: readonly Project[] = [
     ],
   },
   {
+    slug: "posters",
+    title: "Poster Series",
+    category: "Posters · Illustration",
+    summary: "A series of art prints — bold black hand illustrations, hand-lettered type and a fluid cobalt figure — styled in warm, lived-in interiors.",
+    tone: "#e6dccd",
+    images: [
+      { src: "/work/poster-your-life.jpg", alt: "Framed poster of black illustrated hands around the words 'your life is on your hand' above a red record console", width: 2400, height: 3000 },
+      { src: "/work/poster-its-ok.jpg", alt: "Framed poster reading 'it's OK' in bold black brush lettering on a wooden sideboard", width: 2400, height: 3000 },
+      { src: "/work/poster-hands.jpg", alt: "Black-and-white poster of hand gestures hanging above a vintage hi-fi setup with an orange arc lamp", width: 2400, height: 3000 },
+      { src: "/work/poster-blue-figure.jpg", alt: "Large framed print of a flowing cobalt-blue abstract figure above a leather lounge chair", width: 2400, height: 3000 },
+    ],
+  },
+  {
     slug: "corte",
     title: "Corte",
     category: "Brand identity",
@@ -89,6 +102,17 @@ export const projects: readonly Project[] = [
     tone: "#585c68",
     images: [
       { src: "/work/equestro-wine.jpg", alt: "Equestro red wine bottle with an engraved knight illustration on its label, floating between dark stones", width: 1600, height: 1200 },
+    ],
+  },
+  {
+    slug: "howl",
+    title: "Howl",
+    category: "Wordmark · Apparel",
+    summary: "Brush-script wordmark with a confident, retro swing — carried onto oversized tees with a mirrored, interlocking back print.",
+    tone: "#ffffff",
+    images: [
+      { src: "/work/howl-wordmark.jpg", alt: "Howl wordmark in bold black script on white", width: 2400, height: 3000 },
+      { src: "/work/howl-tshirt.jpg", alt: "Two models in white oversized Howl t-shirts, front chest logo and a large black mirrored graphic on the back", width: 2400, height: 3000 },
     ],
   },
   {
@@ -122,16 +146,6 @@ export const projects: readonly Project[] = [
     ],
   },
   {
-    slug: "your-life",
-    title: "Your Life Is on Your Hand",
-    category: "Poster · Illustration",
-    summary: "Art print of interlocking black hands framing a handwritten line, shown framed in a warm living space.",
-    tone: "#e6dccd",
-    images: [
-      { src: "/work/your-life-poster.jpg", alt: "Framed poster of black illustrated hands around the words 'your life is on your hand' above a red record console", width: 1024, height: 1280 },
-    ],
-  },
-  {
     slug: "spartan",
     title: "Spartan Emblem",
     category: "Logo mark",
@@ -139,16 +153,6 @@ export const projects: readonly Project[] = [
     tone: "#eeece4",
     images: [
       { src: "/work/spartan-emblem.jpg", alt: "Black emblem of a muscular Spartan warrior with a helmet and sword on a light background", width: 1280, height: 1600 },
-    ],
-  },
-  {
-    slug: "howl",
-    title: "Howl",
-    category: "Wordmark",
-    summary: "Brush-script wordmark with a confident, retro swing.",
-    tone: "#ffffff",
-    images: [
-      { src: "/work/howl-wordmark.jpg", alt: "Howl wordmark in bold black script on white", width: 1280, height: 1600 },
     ],
   },
   {
